@@ -43,11 +43,6 @@ public class PrintRecibo
         
         //JOptionPane.showMessageDialog(null, archivo);
         //String archivo = "/home/edgar/NetBeansProjects/SistemaSolicitudes/src/sistemasolicitudes/reportEscritura.jasper";
-<<<<<<< HEAD
-        String archivo = "C:/Users/Planificacion1/Documents/NetBeansProjects/sistemacaja2/src/sistemacaja/reporteSolicitud.jasper";
-=======
-        //String archivo = "C:/Users/Jhonnel/Documents/NetBeansProjects/sistemacaja2/src/sistemacaja/reporteSolicitud.jasper";
->>>>>>> upstream/master
         
         System.out.println("Cargando desde: " + archivo);
         if(archivo == null){
