@@ -10,6 +10,10 @@ public class frmMenu extends javax.swing.JFrame {
     
     
     conexion con = new conexion();
+
+    /**
+     *
+     */
     private PrintReportDiario jasper;
     /**
      * Creates new form frmRecibos
@@ -91,7 +95,7 @@ public class frmMenu extends javax.swing.JFrame {
     private void btnReporteDiarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteDiarioActionPerformed
         // TODO add your handling code here:
         String fecha = JOptionPane.showInputDialog(rootPane, "Ingrese Fecha (Año-Mes-dia)");
-        jasper.ejecutarReporte(fecha);
+        jasper.MostrarReporte(fecha);
     }//GEN-LAST:event_btnReporteDiarioActionPerformed
 
     /**

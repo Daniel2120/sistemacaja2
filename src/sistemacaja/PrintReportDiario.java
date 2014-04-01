@@ -33,7 +33,7 @@ public class PrintReportDiario {
         }
     }
     
-    public void ejecutarReporte(String fecha2){
+    public void MostrarReporte(String fecha2){
         
         JOptionPane.showMessageDialog(null, fecha2);
         int Numero = fecha2.length();
@@ -47,7 +47,7 @@ public class PrintReportDiario {
 
             //JOptionPane.showMessageDialog(null, archivo);
             //String archivo = "/home/edgar/NetBeansProjects/SistemaSolicitudes/src/sistemasolicitudes/reportEscritura.jasper";
-            String archivo = "C:/Users/Jhonnel/Documents/NetBeansProjects/sistemacaja2/src/sistemacaja/listadoRecibos.jasper";
+            String archivo = "C:/Users/Planificacion1/Documents/NetBeansProjects/sistemacaja2/src/sistemacaja/listadoRecibos.jasper";
 
             System.out.println("Cargando desde: " + archivo);
             if(archivo == null){
