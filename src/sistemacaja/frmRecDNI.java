@@ -13,15 +13,22 @@ import java.math.MathContext;
 
 public class frmRecDNI extends javax.swing.JFrame {
     
-    private int solic, esc;
-    private String costo;
-    public conexion con = new conexion();
+    int solic, esc;
+    int numeroRecibo =0, nextNumero=0;
+    String costo;
+    conexion con = new conexion();
+    private PrintRecibo jasper;
     
 
     public frmRecDNI() {  //Constructor
         initComponents();
         
-        try{
+        jasper=new PrintRecibo();
+        
+        this.lblcodUsu.setVisible(false);
+        desactiva();
+        
+       /* try{
                 con.conectar();
                 ResultSet res=con.consulta("SELECT MAX(codSol) FROM solicitudes");
                 res.next();
@@ -32,7 +39,7 @@ public class frmRecDNI extends javax.swing.JFrame {
                 con.cierraConexion();
             }catch(SQLException e){
                 JOptionPane.showMessageDialog(null,e + "error coneccion principal");
-            }
+            }*/
     }
     
     public double HallarTotal(int cantidad, double precio)
@@ -62,22 +69,7 @@ public class frmRecDNI extends javax.swing.JFrame {
         double suma = a+b+c+d+e+f+g+h+i+j+k+l+m+n+o;
         float rpta = (float) (Math.rint(suma*10)/10);
         this.txtTotal.setText(rpta+"");
-    }
-
-  public void Decimal(){
-      
-          BigDecimal n = new BigDecimal("1");
-          BigDecimal BIGDEC_3 = new BigDecimal("3");
-          try{
-              System.out.println(n.divide(BIGDEC_3));
-              
-          }catch (Exception ex) {
-              System.err.println(ex.getClass().getName() + " : " + ex.getMessage());
-          }
-          MathContext mc = new MathContext(10, RoundingMode.HALF_UP);
-          System.out.println(n.divide(BIGDEC_3, mc));
-  }
-  
+    } 
   
     public void RestaFinal()
           {
@@ -89,20 +81,62 @@ public class frmRecDNI extends javax.swing.JFrame {
               this.lbCambia.setText(rpta+"");
             
           }   
-    public void Mensaje()
-    {
-        System.out.println("Hola Daniel");
-    }
-    
+   
     public void desactiva(){
            
             
-            this.btnBuscarSolicitud.setEnabled(false);
+           this.txtNunDNI.setEnabled(false);
+        this.txtNombreUsuario.setEnabled(false);
+        
+        this.chkBusqueda.setEnabled(false);
+        this.chkCalificacion.setEnabled(false);
+        this.chkTestimonio.setEnabled(false);
+        this.chkCopiaSimple.setEnabled(false);
+        this.chkCopiaCertificada.setEnabled(false);
+        this.chkCCPartidas.setEnabled(false);
+        this.chkConstancia.setEnabled(false);
+        this.chkExhibicion.setEnabled(false);
+        this.chkFotocopias.setEnabled(false);
+        this.chkTramiteAdministrativo.setEnabled(false);
+        this.chkRegularizacionEscritura.setEnabled(false);
+        this.chkTramiteRegistrosPublicos.setEnabled(false);
+        this.chkAnotacionMarginal.setEnabled(false);
+        this.chkPeritaje.setEnabled(false);
+        this.txtOtros.setEnabled(false);
+        this.txtEfectivo.setEnabled(false);
+        this.txtTotal.setEnabled(false);
+        
+        this.btnBuscarSolicitud.setEnabled(false);
+        this.btnGuardar.setEnabled(false);
+        this.btnImprimir.setEnabled(false);
         }
     public void activa(){
            
            
-            this.btnBuscarSolicitud.setEnabled(true);
+            this.txtNunDNI.setEnabled(true);
+        this.txtNombreUsuario.setEnabled(true);
+        
+        this.chkBusqueda.setEnabled(true);
+        this.chkCalificacion.setEnabled(true);
+        this.chkTestimonio.setEnabled(true);
+        this.chkCopiaSimple.setEnabled(true);
+        this.chkCopiaCertificada.setEnabled(true);
+        this.chkCCPartidas.setEnabled(true);
+        this.chkConstancia.setEnabled(true);
+        this.chkExhibicion.setEnabled(true);
+        this.chkFotocopias.setEnabled(true);
+        this.chkTramiteAdministrativo.setEnabled(true);
+        this.chkRegularizacionEscritura.setEnabled(true);
+        this.chkTramiteRegistrosPublicos.setEnabled(true);
+        this.chkAnotacionMarginal.setEnabled(true);
+        this.chkPeritaje.setEnabled(true);
+        this.txtOtros.setEnabled(true);
+        this.txtEfectivo.setEnabled(true);
+        this.txtTotal.setEnabled(true);
+        
+        this.btnBuscarSolicitud.setEnabled(true);
+        this.btnGuardar.setEnabled(true);
+        this.btnImprimir.setEnabled(true);
         }
     
     @SuppressWarnings("unchecked")
@@ -186,8 +220,8 @@ public class frmRecDNI extends javax.swing.JFrame {
         txtPrecioUnitarioOtros = new javax.swing.JTextField();
         txtTotalOtros = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         txtNunDNI = new javax.swing.JTextField();
         lblcodUsu = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -690,18 +724,18 @@ public class frmRecDNI extends javax.swing.JFrame {
         jLabel11.setText("CAMBIO");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setText("GUARDAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnGuardar.setText("GUARDAR");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 580, -1, -1));
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 580, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setText("IMPRIMIR");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 610, -1, -1));
+        btnImprimir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnImprimir.setText("IMPRIMIR");
+        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 610, -1, -1));
 
         txtNunDNI.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         txtNunDNI.addActionListener(new java.awt.event.ActionListener() {
@@ -740,10 +774,8 @@ public class frmRecDNI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarSolicitudActionPerformed
-        String codigoUsuario, nombre ="";
         
-        
-        
+          
         int numero = txtNunDNI.getText().length();
         String dni2 ="";
         if (numero <8){
@@ -1469,7 +1501,7 @@ public class frmRecDNI extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         /*
         *******************************************************************************************
         *  Esta parte sirve para guardar en la tabla Recibo, todos los campos requidos por la tabla
@@ -1910,7 +1942,9 @@ public class frmRecDNI extends javax.swing.JFrame {
             ****************************************************************
             */
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+        this.btnImprimir.setEnabled(true);
+        this.btnGuardar.setEnabled(false);
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1949,6 +1983,8 @@ public class frmRecDNI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarSolicitud;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JCheckBox chkAnotacionMarginal;
     private javax.swing.JCheckBox chkBusqueda;
@@ -1965,8 +2001,6 @@ public class frmRecDNI extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkTestimonio;
     private javax.swing.JCheckBox chkTramiteAdministrativo;
     private javax.swing.JCheckBox chkTramiteRegistrosPublicos;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

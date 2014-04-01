@@ -3,23 +3,18 @@
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<subDataset name="Servidor" uuid="a16a151c-2f04-4532-a0bd-21ccf3bea313">
+	<subDataset name="Servidor" uuid="b40f7e9e-bf0c-4978-b5f5-bb2117c563c8">
 		<queryString language="SQL">
 			<![CDATA[select 
 r.numRec, r.total,r.fecha,
-
 d.concepto, d.subtotal, d.cantidad, d.pUnitario,
-
 s.codSol, 
-
 concat(u.nombre,' ', u.apePat,' ', u.apeMat) as nombre
-
 from detallerecibo as d, solicitudes as s, usuarios as u, recibo as r
 where r.numSol = s.codSol and
       u.codUsu = s.codUsu and
-	  	
-	  r.numRec = d.numRecibo and
-      r.numRec = 12]]>
+      r.numRec = d.numRecibo and
+      r.numRec = 22;]]>
 		</queryString>
 		<field name="numRec" class="java.lang.Integer">
 			<fieldDescription><![CDATA[]]></fieldDescription>
@@ -49,35 +44,48 @@ where r.numSol = s.codSol and
 			<fieldDescription><![CDATA[]]></fieldDescription>
 		</field>
 	</subDataset>
-	<parameter name="numeroRecibo" class="java.lang.Integer">
+	<parameter name="numeroRecibo" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
 		<![CDATA[select 
 r.numRec, r.total,r.fecha,
-
 d.concepto, d.subtotal, d.cantidad, d.pUnitario,
-
 s.codSol, 
-
 concat(u.nombre,' ', u.apePat,' ', u.apeMat) as nombre
-
 from detallerecibo as d, solicitudes as s, usuarios as u, recibo as r
 where r.numSol = s.codSol and
       u.codUsu = s.codUsu and
-	  	
-	  r.numRec = d.numRecibo and
+      r.numRec = d.numRecibo and
       r.numRec = $P{numeroRecibo};]]>
 	</queryString>
-	<field name="numRec" class="java.lang.Integer"/>
-	<field name="total" class="java.lang.Double"/>
-	<field name="fecha" class="java.sql.Date"/>
-	<field name="concepto" class="java.lang.String"/>
-	<field name="subtotal" class="java.lang.Double"/>
-	<field name="cantidad" class="java.lang.Integer"/>
-	<field name="pUnitario" class="java.lang.Double"/>
-	<field name="codSol" class="java.lang.Integer"/>
-	<field name="nombre" class="java.lang.String"/>
+	<field name="numRec" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="concepto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subtotal" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cantidad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pUnitario" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codSol" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>

@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -39,11 +40,11 @@ public class PrintRecibo
     {                     
         File f = new File (""); // Creamos un objeto file
 	//JOptionPane.showMessageDialog(null,f.getAbsolutePath()); // Llamamos al método que devuelve la ruta absoluta
-        //String archivo = f.getAbsolutePath() + "\\report\\reportEscritura.jasper";
+        //String archivo = f.getAbsolutePath() + "\\report\\reporteSolicitud.jasper";
         
         //JOptionPane.showMessageDialog(null, archivo);
         //String archivo = "/home/edgar/NetBeansProjects/SistemaSolicitudes/src/sistemasolicitudes/reportEscritura.jasper";
-        String archivo = "C:/Users/Jhonnel/Documents/NetBeansProjects/sistemacaja2/src/sistemacaja/reporteSolicitud.jasper";
+        String archivo = "C:/Users/Planificacion1/Documents/NetBeansProjects/sistemacaja2/src/sistemacaja/reporteSolicitud.jasper";
         
         System.out.println("Cargando desde: " + archivo);
         if(archivo == null){
