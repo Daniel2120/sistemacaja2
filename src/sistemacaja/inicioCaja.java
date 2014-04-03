@@ -43,7 +43,7 @@ public class inicioCaja extends javax.swing.JFrame {
         int milisegundosRepeticion = 3;
 
         //Temporizador instanciado desde la clase Timer
-        Timer temporizador = new Timer("");
+        /*Timer temporizador = new Timer("");
 
         //Instancia de la clase que contiene el código a ejecutar
         Codigo c = new Codigo();
@@ -52,7 +52,7 @@ public class inicioCaja extends javax.swing.JFrame {
          * código en X milisegundos y que repita el código luego del tiempo
          * determinado.
          */
-        temporizador.schedule(c, milisegundos, milisegundosRepeticion);
+        /*temporizador.schedule(c, milisegundos, milisegundosRepeticion);*/
 
     }
 
@@ -97,10 +97,8 @@ public class inicioCaja extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
->>>>>>> upstream/master
-    /**
-     * @param args the command line arguments
-     */
+
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

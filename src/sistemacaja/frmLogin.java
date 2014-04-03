@@ -19,9 +19,9 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
-        txtPass = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
+        txtPass = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(430, 305));
@@ -36,7 +36,6 @@ public class frmLogin extends javax.swing.JFrame {
         jLabel2.setText("PASSWORD");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
         getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 90, -1));
-        getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 90, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Ingresa tu nombre y contraseña para acceder al sistema");
@@ -50,6 +49,7 @@ public class frmLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
+        getContentPane().add(txtPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 90, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -126,7 +126,7 @@ public class frmLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField txtPass;
+    private javax.swing.JPasswordField txtPass;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
