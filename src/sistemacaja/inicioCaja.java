@@ -1,8 +1,14 @@
 package sistemacaja;
 
+
 import java.util.TimerTask;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+
+import javax.swing.JOptionPane;
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 /**
  *
@@ -22,9 +28,32 @@ public class inicioCaja extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
+
        
          
-       
+
+        
+        //Milisegundos (segundos*1000) luego de los cuales ejecutar el código
+        int milisegundos = 1000;
+
+        /*Aquí es donde se mencionó la importancia de definir un tiempo
+         luego del cual se volverá a ejecutar el código, si es que no se
+         desea eso, se puede dejar en 1 (no en 0) ya que en la clase Codigo 
+         se realizará todo el debido control*/
+        int milisegundosRepeticion = 3;
+
+        //Temporizador instanciado desde la clase Timer
+        Timer temporizador = new Timer("");
+
+        //Instancia de la clase que contiene el código a ejecutar
+        Codigo c = new Codigo();
+
+        /*Se hace un llamado al temporizador para que ejecute el
+         * código en X milisegundos y que repita el código luego del tiempo
+         * determinado.
+         */
+        temporizador.schedule(c, milisegundos, milisegundosRepeticion);
+
     }
 
     /**
@@ -39,8 +68,11 @@ public class inicioCaja extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+<<<<<<< HEAD
         setFocusCycleRoot(false);
         setLocationByPlatform(true);
+=======
+>>>>>>> upstream/master
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -50,6 +82,22 @@ public class inicioCaja extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+    TimerTask timerTask = new TimerTask() 
+     { 
+         public void run()  
+         { 
+             JOptionPane.showMessageDialog(rootPane, "hola");
+         } 
+     };
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        frmLogin Login=new frmLogin();
+        Login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+>>>>>>> upstream/master
     /**
      * @param args the command line arguments
      */
