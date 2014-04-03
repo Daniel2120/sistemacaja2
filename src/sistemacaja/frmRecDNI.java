@@ -1,13 +1,13 @@
 
 package sistemacaja;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.math.MathContext;
         
 
 
@@ -135,7 +135,6 @@ public class frmRecDNI extends javax.swing.JFrame {
         this.txtTotal.setEnabled(true);
         
         this.btnBuscarSolicitud.setEnabled(true);
-        this.btnGuardar.setEnabled(true);
         this.btnImprimir.setEnabled(true);
         }
     
@@ -145,7 +144,7 @@ public class frmRecDNI extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        lblNumeroRecibo = new javax.swing.JLabel();
         txtNombreUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -238,13 +237,18 @@ public class frmRecDNI extends javax.swing.JFrame {
         btnNuevo.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         btnNuevo.setForeground(new java.awt.Color(0, 0, 51));
         btnNuevo.setText("NUEVO");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 42, 120, 30));
 
-        jLabel3.setBackground(new java.awt.Color(51, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 0, 0));
-        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 11, 120, 30));
+        lblNumeroRecibo.setBackground(new java.awt.Color(51, 0, 0));
+        lblNumeroRecibo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblNumeroRecibo.setForeground(new java.awt.Color(51, 0, 0));
+        lblNumeroRecibo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(lblNumeroRecibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 11, 120, 30));
 
         txtNombreUsuario.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         txtNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -666,6 +670,9 @@ public class frmRecDNI extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtEfectivoKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEfectivoKeyTyped(evt);
+            }
         });
         getContentPane().add(txtEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 550, 110, 40));
 
@@ -735,6 +742,11 @@ public class frmRecDNI extends javax.swing.JFrame {
 
         btnImprimir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnImprimir.setText("IMPRIMIR");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 610, -1, -1));
 
         txtNunDNI.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -1770,7 +1782,7 @@ public class frmRecDNI extends javax.swing.JFrame {
         }
         if (this.chkFotocopias.isSelected())
         {
-            JOptionPane.showMessageDialog(rootPane, "Fotocopia");
+            
             // Declarando variables y capturando valores de cada line en el recibo
             String concepto = this.chkFotocopias.getText();
             double cantidad = Double.parseDouble(this.txtCantidadFotocopias.getText());
@@ -1799,7 +1811,7 @@ public class frmRecDNI extends javax.swing.JFrame {
         }
         if (this.chkTramiteAdministrativo.isSelected())
         {
-            JOptionPane.showMessageDialog(rootPane, "Tramite Administrativo");
+           
             // Declarando variables y capturando valores de cada line en el recibo
             String concepto = this.chkTramiteAdministrativo.getText();
             double cantidad = Double.parseDouble(this.txtCantidadTramiteAdministrativo.getText());
@@ -1828,7 +1840,7 @@ public class frmRecDNI extends javax.swing.JFrame {
         }
         if (this.chkRegularizacionEscritura.isSelected())
         {
-            JOptionPane.showMessageDialog(rootPane, "Regularizacion de Escrituras");
+            
             // Declarando variables y capturando valores de cada line en el recibo
             String concepto = this.chkRegularizacionEscritura.getText();
             double cantidad = Double.parseDouble(this.txtCantidadRegularizacionEscritura.getText());
@@ -1857,7 +1869,7 @@ public class frmRecDNI extends javax.swing.JFrame {
         }
         if (this.chkTramiteRegistrosPublicos.isSelected())
         {
-            JOptionPane.showMessageDialog(rootPane, "Tramite ");
+            
             // Declarando variables y capturando valores de cada line en el recibo
             String concepto = this.chkTramiteRegistrosPublicos.getText();
             double cantidad = Double.parseDouble(this.txtCantidadTramiteRegistrosPublicos.getText());
@@ -1886,7 +1898,7 @@ public class frmRecDNI extends javax.swing.JFrame {
         }
         if (this.chkAnotacionMarginal.isSelected())
         {
-            JOptionPane.showMessageDialog(rootPane, "activo");
+            
             // Declarando variables y capturando valores de cada line en el recibo
             String concepto = this.chkAnotacionMarginal.getText();
             double cantidad = Double.parseDouble(this.txtCantidadAnotacionMarginal.getText());
@@ -1915,7 +1927,7 @@ public class frmRecDNI extends javax.swing.JFrame {
         }
         if (this.chkOtros.isSelected())
         {
-            JOptionPane.showMessageDialog(rootPane, "activo");
+            
             // Declarando variables y capturando valores de cada line en el recibo
             String concepto = this.txtOtros.getText();
             double cantidad = Double.parseDouble(this.txtCantidadOtros.getText());
@@ -1945,6 +1957,67 @@ public class frmRecDNI extends javax.swing.JFrame {
         this.btnImprimir.setEnabled(true);
         this.btnGuardar.setEnabled(false);
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtEfectivoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEfectivoKeyTyped
+        
+        String text2 = this.txtEfectivo.getText();
+        
+        int resultado= text2.indexOf('.');
+        if(resultado != -1)
+        {
+            if("".equals(this.txtTotal.getText()))
+            {
+                JOptionPane.showMessageDialog(rootPane, "El total esta en CERO 0");
+                this.txtEfectivo.setText("");
+                this.txtTotal.setBackground(Color.yellow);
+            }else
+            {
+                
+                this.txtTotal.setBackground(Color.white);
+                
+                double z;
+                z = Double.parseDouble(this.txtEfectivo.getText());
+                double y;
+                y = Double.parseDouble(this.txtTotal.getText());
+                double resta = z-y;
+              
+                float rpta = (float) (Math.rint(resta*10)/10);
+                this.lbCambia.setText(rpta+"");
+                
+                this.btnGuardar.setEnabled(true);
+            }
+            
+        }else{
+            this.btnGuardar.setEnabled(false);
+            this.lbCambia.setText("");
+        }
+        
+    }//GEN-LAST:event_txtEfectivoKeyTyped
+
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        
+         String numeroRecibo = this.lblNumeroRecibo.getText();
+        jasper.ejecutarReporte(numeroRecibo);
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        
+        activa();
+        this.btnImprimir.setEnabled(false);
+        try{
+            con.conectar();
+            ResultSet res=con.consulta("SELECT max(numRec) FROM recibo;");
+            res.next();
+            numeroRecibo=Integer.parseInt(res.getString(1));
+            
+            con.cierraConexion();
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+        nextNumero = numeroRecibo + 1;
+        this.lblNumeroRecibo.setText(nextNumero+"");
+        this.txtNunDNI.requestFocus();
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2006,7 +2079,6 @@ public class frmRecDNI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2014,6 +2086,7 @@ public class frmRecDNI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbCambia;
+    private javax.swing.JLabel lblNumeroRecibo;
     private javax.swing.JLabel lblcodUsu;
     private javax.swing.JTextField txtCantidadAnotacionMarginal;
     private javax.swing.JTextField txtCantidadBusqueda;

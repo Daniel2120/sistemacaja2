@@ -1794,7 +1794,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         }
         if (this.chkFotocopias.isSelected())
         {
-            JOptionPane.showMessageDialog(rootPane, "Fotocopia");
+            
             // Declarando variables y capturando valores de cada line en el recibo
             String concepto = this.chkFotocopias.getText();
             double cantidad = Double.parseDouble(this.txtCantidadFotocopias.getText());
@@ -1823,7 +1823,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         }
         if (this.chkTramiteAdministrativo.isSelected())
         {
-            JOptionPane.showMessageDialog(rootPane, "Tramite Administrativo");
+            
             // Declarando variables y capturando valores de cada line en el recibo
             String concepto = this.chkTramiteAdministrativo.getText();
             double cantidad = Double.parseDouble(this.txtCantidadTramiteAdministrativo.getText());
@@ -1852,7 +1852,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         }
         if (this.chkRegularizacionEscritura.isSelected())
         {
-            JOptionPane.showMessageDialog(rootPane, "Regularizacion de Escrituras");
+            
             // Declarando variables y capturando valores de cada line en el recibo
             String concepto = this.chkRegularizacionEscritura.getText();
             double cantidad = Double.parseDouble(this.txtCantidadRegularizacionEscritura.getText());
@@ -1881,7 +1881,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         }
         if (this.chkTramiteRegistrosPublicos.isSelected())
         {
-            JOptionPane.showMessageDialog(rootPane, "Tramite ");
+           
             // Declarando variables y capturando valores de cada line en el recibo
             String concepto = this.chkTramiteRegistrosPublicos.getText();
             double cantidad = Double.parseDouble(this.txtCantidadTramiteRegistrosPublicos.getText());
@@ -1910,7 +1910,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         }
         if (this.chkAnotacionMarginal.isSelected())
         {
-            JOptionPane.showMessageDialog(rootPane, "activo");
+           
             // Declarando variables y capturando valores de cada line en el recibo
             String concepto = this.chkAnotacionMarginal.getText();
             double cantidad = Double.parseDouble(this.txtCantidadAnotacionMarginal.getText());
@@ -1939,7 +1939,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         }
         if (this.chkOtros.isSelected())
         {
-            JOptionPane.showMessageDialog(rootPane, "activo");
+            
             // Declarando variables y capturando valores de cada line en el recibo
             String concepto = this.txtOtros.getText();
             
